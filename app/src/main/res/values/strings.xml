@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hello Kotlin</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="kotlin_title">Kotlin (programming language)</string>
+    <string name="kotlin_content">Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of its standard library depends on the Java Class Library,[2] but type inference allows its syntax to be more concise. Kotlin mainly targets the JVM, but also compiles to JavaScript or native code (via LLVM). Kotlin is sponsored by JetBrains and Google through the Kotlin Foundation.</string>
+    <string name="console">Console...</string>
 </resources>
