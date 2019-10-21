@@ -1,6 +1,7 @@
 package com.example.hellokotlin
 
 import android.os.Bundle
+import android.os.Message
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -29,8 +30,8 @@ class MainActivity : AppCompatActivity() {
     // #2 Create a function that receives an array of strings and print the first argument.
     fun readNameFromCommandLine(args : Array<String>) {
         clearConsoleView()
-        if (args.size != 0) {
-            printToConsoleView("Arguemnt:, ${args[0]}")
+        if (args.isNotEmpty()) {
+            printToConsoleView("Argument:, ${args[0]}")
 
             println()
         } else {
@@ -55,4 +56,46 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // #4
+    /**
+     * In this example, `val` denotes a declaration of a read-only local variable,
+     * that is assigned a pattern matching expression.
+     * See http://kotlinlang.org/docs/reference/control-flow.html#when-expression
+     */
+    fun readLanguage(language: String?) {
+        val language = if (language != null) language else "EN"
+    }
+
+    // #5 According to a given parameter print Hello if EN, Hallo if DE, Hola if ES, otherwise
+    // an alternative text. Use Elvis expression.
+    fun sayHello(language: String?) {
+        val language = language ?: "EN"
+        println(when(language) {
+            "EN" -> "Hello"
+            "DE" -> "Hallo"
+            "ES" -> "Hola"
+            else -> "Sorry, I can only understand English, German and Spanish"
+        })
+    }
+
+    // #6 Create a static class that receives one argument an call a method from that class
+    // which uses that argument. The argument cannot be null.
+    class MyNewKotlinClass(private val message: String) {
+        fun sayHi() {
+            println("Message, $message")
+        }
+    }
+
+    fun callClassFunction() {
+        MyNewKotlinClass("Hello there!").sayHi()
+    }
+
+
+    // #7 Given 2 arguments calculate the max value in a separate function and print it from where
+    // you call the function.
+    fun calculateMax(args: Array<String>) {
+        println(max(args[0].toInt(), args[1].toInt()))
+    }
+
+    fun max(a: Int, b : Int) = if (a>b) a else b
 }
