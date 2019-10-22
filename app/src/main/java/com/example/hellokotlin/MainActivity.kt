@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     // https://try.kotlinlang.org/
 
     // Don't need this like on Java, you can directly access the object by it's ID.
-    var mTextView : TextView? = null;
+    var mTextView: TextView? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // #2 Create a function that receives an array of strings and print the first argument.
-    fun readNameFromCommandLine(args : Array<String>) {
+    fun readNameFromCommandLine(args: Array<String>) {
         clearConsoleView()
         if (args.isNotEmpty()) {
             printToConsoleView("Argument:, ${args[0]}")
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // #3 Create a function that receives an array of strings and print all passed arguments.
-    fun readNamesFromCommandLine(args : Array<String>) {
+    fun readNamesFromCommandLine(args: Array<String>) {
         clearConsoleView()
         for (arg in args) {
             printToConsoleView("Hello, ${arg}!")
@@ -70,12 +70,14 @@ class MainActivity : AppCompatActivity() {
     // an alternative text. Use Elvis expression.
     fun sayHello(language: String?) {
         val language = language ?: "EN"
-        println(when(language) {
-            "EN" -> "Hello"
-            "DE" -> "Hallo"
-            "ES" -> "Hola"
-            else -> "Sorry, I can only understand English, German and Spanish"
-        })
+        println(
+            when (language) {
+                "EN" -> "Hello"
+                "DE" -> "Hallo"
+                "ES" -> "Hola"
+                else -> "Sorry, I can only understand English, German and Spanish"
+            }
+        )
     }
 
     // #6 Create a static class that receives one argument an call a method from that class
@@ -97,5 +99,95 @@ class MainActivity : AppCompatActivity() {
         println(max(args[0].toInt(), args[1].toInt()))
     }
 
-    fun max(a: Int, b : Int) = if (a>b) a else b
+    fun max(a: Int, b: Int) = if (a > b) a else b
+
+    // #8 Null checks
+    // #9 is checks and smart casts
+    // Call a function that accepts null and return 1 if it's a number
+    fun checkThatOne(obj: Any): Int? {
+        if (obj is Int) {
+            return 1
+        } else {
+            return null
+        }
+    }
+
+    fun checkThatOne2(obj: Any): Int? {
+        return if (obj is Int) {
+            1
+        } else {
+            null
+        }
+    }
+
+    fun checkThatOne3(obj: Any): Int? = when (obj) {
+        is Int -> 1
+        else -> null
+    }
+
+    // #10 while loop: same as Java
+    // #11 for loop: same as Java
+
+    // #12 Use ranges in
+    // * Check if a number lies within a range.
+    fun wihtinARange(number: Int): Boolean {
+        return number in 2..5
+    }
+
+    // * Check if a number is out of range.
+    fun isOutOfRange(number: Int): Boolean {
+        return number !in 10..15
+    }
+
+    // * Check if a collection contains an object.
+    fun containsObject(obj: Any): Boolean {
+        val array = arrayListOf<String>()
+        array.add("abc")
+        array.add("def")
+        array.add("qwer")
+        return ("searchMe" in array)
+    }
+
+    // Iterate over a range
+    fun iterateOverARange() {
+        for (index in 1..5) {
+            println("index: $index")
+        }
+    }
+
+    // #13 Use when in combination with different stuff
+    fun trySomeStuffWithWhen(obj: Any) {
+        when (obj) {
+            1 -> println("Number")
+            "1" -> println("String")
+            is Integer -> println("Lets multiply")
+            !is String -> println("Oh!, what are you then?")
+            else -> println("I don't have idea what you are")
+        }
+    }
+
+    // # 14 destructuring declarations
+    // data classes automatically declare componentN()
+    data class Dog(val name: String, val weight: Int)
+    fun destructDeclaration() {
+        val (name, weight) = Dog("Hamster", 12)
+        println("Dog's name: $name")
+        println("Dog's weight: $weight")
+
+        // or if you only need one variable:
+        val (_, weight2) = Dog("Hamster", 12)
+        println("Dog's weight: $weight2")
+    }
+
+    // This is the class you would need if you don't have a data class. The "operator" key
+    // is necessary to used it like above, and there could be any number of them.
+    class Dog2<String, Int>(val name: String, val weight: Int) {
+        operator fun component1(): String {
+            return name
+        }
+
+        operator fun component2(): Int {
+            return weight
+        }
+    }
 }
