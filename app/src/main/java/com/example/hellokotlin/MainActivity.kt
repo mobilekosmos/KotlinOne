@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlin.reflect.KProperty
 
 class MainActivity : AppCompatActivity() {
 
