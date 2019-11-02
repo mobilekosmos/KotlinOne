@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         textView3.text = textView3.text.toString() + s
     }
 
-    // #3 Create a function that receives an array of strings and print all passed arguments.
+    // #3 Create a function that receives an array of strings and prints all passed arguments.
     fun readNamesFromCommandLine(args: Array<String>) {
         clearConsoleView()
         for (arg in args) {
