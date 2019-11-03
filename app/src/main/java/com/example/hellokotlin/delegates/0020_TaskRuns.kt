@@ -64,3 +64,16 @@ fun runs3(a: IntArray): Int = if (a.isEmpty()) {
         }
         rounds
     }
+
+fun runs4(a: IntArray): Int = if (a.isEmpty()) {
+    0
+} else {
+    var rounds = 1
+    for ((counter, number) in a.withIndex()) {
+        println(number)
+        if (a.size > counter + 1 && number != a[counter + 1]) {
+            rounds++;
+        }
+    }
+    rounds
+}
