@@ -1,4 +1,4 @@
-package com.example.hellokotlin.delegates
+package com.example.hellokotlin
 
 fun main() {
     println(findPairless(intArrayOf(1, 2, 1, 2)))

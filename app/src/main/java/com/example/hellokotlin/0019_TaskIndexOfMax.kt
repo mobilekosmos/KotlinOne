@@ -1,4 +1,4 @@
-package com.example.hellokotlin.delegates
+package com.example.hellokotlin
 
 fun main() {
     println(indexOfMax(intArrayOf(5, -5, 10, 0, 100, 7, 7)))

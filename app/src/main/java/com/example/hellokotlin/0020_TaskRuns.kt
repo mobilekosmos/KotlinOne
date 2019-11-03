@@ -1,4 +1,4 @@
-package com.example.hellokotlin.delegates
+package com.example.hellokotlin
 
 fun main() {
     println("runs= " + runs(intArrayOf(1)))
