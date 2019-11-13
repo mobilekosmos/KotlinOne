@@ -5,9 +5,9 @@ Destructuring declarations
 Read about destructuring declarations and make the following code compile by adding one word.
  */
 
-class MyDate(val year: Int, val month: Int, val dayOfMonth: Int)
+data class MyDate6(val year: Int, val month: Int, val dayOfMonth: Int)
 
-fun isLeapDay(date: MyDate): Boolean {
+private fun isLeapDay(date: MyDate6): Boolean {
 
     val (year, month, dayOfMonth) = date
 

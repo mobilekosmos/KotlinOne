@@ -9,18 +9,16 @@ At first, add an extension function 'plus()' to MyDate, taking a TimeInterval as
 Then, try to support adding several time intervals to a date. You may need an extra class.
  */
 
-import TimeInterval.*
+private data class MyDate5(val year: Int, val month: Int, val dayOfMonth: Int)
 
-data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int)
+private enum class TimeInterval { DAY, WEEK, YEAR }
 
-enum class TimeInterval { DAY, WEEK, YEAR }
+private operator fun MyDate.plus(timeInterval: TimeInterval): MyDate = TODO()
 
-operator fun MyDate.plus(timeInterval: TimeInterval): MyDate = TODO()
-
-fun task1(today: MyDate): MyDate {
-    return today + YEAR + WEEK
+private fun task1(today: MyDate): MyDate {
+    return today + TimeInterval.YEAR + TimeInterval.WEEK
 }
 
-fun task2(today: MyDate): MyDate {
+private fun task2(today: MyDate): MyDate {
     TODO("Uncomment") //return today + YEAR * 2 + WEEK * 3 + DAY * 5
 }
